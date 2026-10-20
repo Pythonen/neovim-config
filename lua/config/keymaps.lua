@@ -27,6 +27,8 @@ keymap("i", "jk", "<Esc>")
 
 -- LSP hover
 keymap("n", "gh", vim.lsp.buf.hover, { desc = "LSP: Hover" })
+keymap("i", "<C-s>", vim.lsp.buf.signature_help, { desc = "LSP: Signature" })
+keymap("n", "ge", vim.diagnostic.open_float, { desc = "LSP: Signature" })
 
 local opts = { noremap = true, silent = true }
 -- yank to system clipboard
@@ -37,3 +39,5 @@ keymap({ "n", "v", "x" }, "<leader>p", '"+p', opts)
 -- paste preserves primal yanked piece
 keymap("v", "p", '"_dP', opts)
 keymap("n", "<Esc>", "<Esc>:noh<CR>", opts)
+
+keymap("n", "<C-t>", "<cmd>silent !tmux new-window ~/dev/config/tmux-sessionizer.sh<CR>")
